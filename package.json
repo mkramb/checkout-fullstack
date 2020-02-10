@@ -1,0 +1,43 @@
+{
+  "name": "parent",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream",
+    "clean": "lerna clean --yes",
+    "lint": "lerna run lint --stream --parallel --",
+    "start": "yarn build && concurrently --kill-others \"yarn start:web\" \"yarn start:server\"",
+    "start:server": "cross-env TEST_ITEMS=10 lerna run dev --scope @feedback/server --stream",
+    "start:web": "lerna run dev --scope @feedback/web --stream",
+    "test": "cross-env NODE_ENV='ci' lerna run test --stream"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "lerna": "^3.20.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.1",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": ">=12.10.0",
+    "yarn": ">=1.17.3"
+  }
+}

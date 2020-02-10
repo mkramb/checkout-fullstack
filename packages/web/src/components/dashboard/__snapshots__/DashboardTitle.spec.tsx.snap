@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardTitle should pass 1`] = `
+<WithStyles(ForwardRef(AppBar))
+  position="static"
+>
+  <WithStyles(ForwardRef(Toolbar))>
+    Feedback Dashboard
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
+`;

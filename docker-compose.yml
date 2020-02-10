@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  server:
+    environment:
+      - TEST_ITEMS=10
+    build:
+      context: ./
+      dockerfile: ./packages/server/Dockerfile
+    ports:
+      - '3000:3000'
+  web:
+    environment:
+      - SERVER_API='http://0.0.0.0:3000/api/v1'
+    build:
+      context: ./
+      dockerfile: ./packages/web/Dockerfile
+    ports:
+      - '9000:9000'
